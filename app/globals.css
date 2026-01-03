@@ -1,26 +1,250 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
+/* Win98 Design Tokens */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+    /* Core Colors */
+    --win98-bg: #c0c0c0; /* desktop / outer surface */
+    --win98-face: #dfdfdf; /* panel + control background */
+    --win98-edge: #808080; /* dark edge / shadow */
+    --win98-hi: #ffffff; /* light edge / highlight */
+    --win98-black: #000000; /* text / outlines */
+
+    /* Title bars */
+    --win98-title-active-top: #000080;
+    --win98-title-active-bottom: #1084d0;
+    --win98-title-inactive-top: #808080;
+    --win98-title-inactive-bottom: #b5b5b5;
+
+    /* Accent (icons / details) */
+    --win98-accent-teal: #008080;
+    --win98-accent-track: #b0b0b0;
+
+    /* States */
+    --win98-focus-outline: #000000;
+    --win98-error: #800000;
+    --win98-success: #007000;
+
+    /* Typography */
+    --win98-font-family: 'Tahoma', 'MS Sans Serif', sans-serif;
+    --win98-font-size: 10px;
+    --win98-line-height: 1.2;
+
+    /* Spacing & Layout */
+    --win98-gap-xs: 2px;
+    --win98-gap-sm: 4px;
+    --win98-pad-xs: 2px;
+    --win98-pad-sm: 4px;
+    --win98-pad-md: 6px;
+    --win98-border-width: 2px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Global Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--win98-font-family);
+    font-size: var(--win98-font-size);
+    line-height: var(--win98-line-height);
+    color: var(--win98-black);
+    background: var(--win98-bg);
+    cursor: default;
+}
+
+/* Disable all transitions and animations */
+*,
+*::before,
+*::after {
+    transition: none !important;
+    animation: none !important;
+}
+
+/* Win98 Core Component Classes */
+
+/* Raised surface: buttons, menu bar */
+.win98-raised {
+    border-top: var(--win98-border-width) solid var(--win98-hi);
+    border-left: var(--win98-border-width) solid var(--win98-hi);
+    border-right: var(--win98-border-width) solid var(--win98-edge);
+    border-bottom: var(--win98-border-width) solid var(--win98-edge);
+    background: var(--win98-face);
+}
+
+/* Sunken surface: panels, inputs, status bars */
+.win98-sunken {
+    border-top: var(--win98-border-width) solid var(--win98-edge);
+    border-left: var(--win98-border-width) solid var(--win98-edge);
+    border-right: var(--win98-border-width) solid var(--win98-hi);
+    border-bottom: var(--win98-border-width) solid var(--win98-hi);
+    background: var(--win98-face);
+}
+
+/* Window Components */
+.win98-window {
+    border: var(--win98-border-width) solid var(--win98-edge);
+    background: var(--win98-face);
+    box-shadow: inset 1px 1px var(--win98-hi);
+}
+
+.win98-titlebar {
+    height: 24px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 6px;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    background: linear-gradient(
+        to bottom,
+        var(--win98-title-active-top),
+        var(--win98-title-active-bottom)
+    );
+}
+
+.win98-menubar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: var(--win98-pad-sm) var(--win98-pad-md);
+    background: var(--win98-face);
+    border-top: var(--win98-border-width) solid var(--win98-hi);
+    border-left: var(--win98-border-width) solid var(--win98-hi);
+    border-right: var(--win98-border-width) solid var(--win98-edge);
+    border-bottom: var(--win98-border-width) solid var(--win98-edge);
+    font-size: var(--win98-font-size);
+}
+
+.win98-statusbar {
+    display: flex;
+    align-items: center;
+    padding: var(--win98-pad-xs) var(--win98-pad-sm);
+    height: 20px;
+    font-size: var(--win98-font-size);
+    background: var(--win98-face);
+    border-top: var(--win98-border-width) solid var(--win98-edge);
+    border-left: var(--win98-border-width) solid var(--win98-edge);
+    border-right: var(--win98-border-width) solid var(--win98-hi);
+    border-bottom: var(--win98-border-width) solid var(--win98-hi);
+}
+
+/* Button Components */
+.win98-button {
+    padding: 3px 8px;
+    cursor: default;
+    font-family: var(--win98-font-family);
+    font-size: var(--win98-font-size);
+    background: var(--win98-face);
+    color: var(--win98-black);
+    border-top: var(--win98-border-width) solid var(--win98-hi);
+    border-left: var(--win98-border-width) solid var(--win98-hi);
+    border-right: var(--win98-border-width) solid var(--win98-edge);
+    border-bottom: var(--win98-border-width) solid var(--win98-edge);
+}
+
+.win98-button:active {
+    border-top: var(--win98-border-width) solid var(--win98-edge);
+    border-left: var(--win98-border-width) solid var(--win98-edge);
+    border-right: var(--win98-border-width) solid var(--win98-hi);
+    border-bottom: var(--win98-border-width) solid var(--win98-hi);
+}
+
+.win98-button:focus {
+    outline: 1px solid var(--win98-focus-outline);
+    outline-offset: -3px;
+}
+
+/* Input Components */
+.win98-input,
+.win98-select,
+.win98-textarea {
+    background: #ffffff;
+    padding: var(--win98-pad-xs) 3px;
+    font-family: var(--win98-font-family);
+    font-size: var(--win98-font-size);
+    color: var(--win98-black);
+    border-top: var(--win98-border-width) solid var(--win98-edge);
+    border-left: var(--win98-border-width) solid var(--win98-edge);
+    border-right: var(--win98-border-width) solid var(--win98-hi);
+    border-bottom: var(--win98-border-width) solid var(--win98-hi);
+}
+
+.win98-textarea {
+    box-shadow: inset 1px 1px var(--win98-hi), inset -1px -1px var(--win98-edge);
+    font-family: Consolas, 'Courier New', monospace;
+    font-size: 11px;
+    resize: none;
+}
+
+/* Panel Components */
+.panel98 {
+    background: var(--win98-face);
+    border-top: var(--win98-border-width) solid var(--win98-edge);
+    border-left: var(--win98-border-width) solid var(--win98-edge);
+    border-right: var(--win98-border-width) solid var(--win98-hi);
+    border-bottom: var(--win98-border-width) solid var(--win98-hi);
+}
+
+/* Pills / Tags */
+.win98-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--win98-pad-xs) var(--win98-pad-sm);
+    border: 1px solid var(--win98-black);
+    background: var(--win98-face);
+    border-radius: 0;
+    font-size: var(--win98-font-size);
+}
+
+/* Typography Hierarchy */
+h1 {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 11px;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 10px;
+    font-weight: bold;
+}
+
+/* List Styles */
+ul,
+ol {
+    margin: 0;
+    padding-left: 16px;
+}
+
+li {
+    margin-bottom: var(--win98-gap-xs);
+}
+
+/* Scrollbar Styling for WebKit */
+::-webkit-scrollbar {
+    width: 16px;
+    height: 16px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--win98-accent-track);
+    border: 1px solid var(--win98-edge);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--win98-face);
+    border: 1px solid var(--win98-edge);
+    border-top-color: var(--win98-hi);
+    border-left-color: var(--win98-hi);
+}
+
+::-webkit-scrollbar-corner {
+    background: var(--win98-face);
 }
