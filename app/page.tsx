@@ -129,10 +129,35 @@ export default function Home() {
                         style={{ padding: '8px', textAlign: 'center' }}
                     >
                         <h1 style={{ fontSize: '20px', marginBottom: '4px' }}>
-                            Your Name
+                            Evan Ferreira
                         </h1>
                         <p style={{ fontSize: '10px' }}>
-                            A brief one-liner that captures who you are
+                            4th year Queen's Commmerce
+                        </p>
+                    </div>
+
+                    {/* About Me Panel */}
+                    <div className="panel98" style={{ padding: '6px 32px' }}>
+                        <h2
+                            style={{
+                                textAlign: 'center',
+                                marginBottom: '6px',
+                                textTransform: 'uppercase',
+                                letterSpacing: '0.5px',
+                            }}
+                        >
+                            ABOUT ME
+                        </h2>
+                        <p
+                            style={{
+                                fontSize: '10px',
+                                lineHeight: '1.4',
+                                textAlign: 'center',
+                            }}
+                        >
+                            Born and raised in Etobicoke, Ontario, I'm a
+                            self-taught software engineer passioante about
+                            entrepreneurship, martial arts, and physics.
                         </p>
                     </div>
 
@@ -156,7 +181,7 @@ export default function Home() {
                                     letterSpacing: '0.5px',
                                 }}
                             >
-                                PAST
+                                TALK TO ME ABOUT
                             </h2>
                             <ul
                                 style={{
@@ -165,9 +190,21 @@ export default function Home() {
                                     lineHeight: '1.4',
                                 }}
                             >
-                                <li>Your experience here</li>
-                                <li>Another milestone</li>
-                                <li>Key memory or achievement</li>
+                                <li>
+                                    - MMA (and why Charles Oliveira is the GOAT)
+                                </li>
+                                <li>
+                                    - Quantum mechanics and faster than light
+                                    travel
+                                </li>
+                                <li>
+                                    - Suits (I've seen every episode at least 3
+                                    times)
+                                </li>
+                                <li>
+                                    - Anything related to
+                                    startups/entrepreneurship
+                                </li>
                             </ul>
                         </div>
 
@@ -189,7 +226,7 @@ export default function Home() {
                                     letterSpacing: '0.5px',
                                 }}
                             >
-                                PRESENT
+                                FUN FACTS
                             </h2>
                             <ul
                                 style={{
@@ -198,9 +235,20 @@ export default function Home() {
                                     lineHeight: '1.4',
                                 }}
                             >
-                                <li>Current activity or role</li>
-                                <li>What you're working on</li>
-                                <li>Present passion or focus</li>
+                                <li>
+                                    - I've wrestled competitively for 6 years
+                                </li>
+                                <li>- Pho is my favourite food</li>
+                                <li>
+                                    - I almost got sued by Queen's University
+                                    (less fun of a fact)
+                                </li>
+                                <li>- I've never tried McDonald's</li>
+                                <li>
+                                    - This infographic was built in Cursor
+                                    (because I thought it'd be easier than
+                                    Canva?)
+                                </li>
                             </ul>
                         </div>
 
@@ -222,7 +270,7 @@ export default function Home() {
                                     letterSpacing: '0.5px',
                                 }}
                             >
-                                FUTURE
+                                ASIA GOALS
                             </h2>
                             <ul
                                 style={{
@@ -231,9 +279,13 @@ export default function Home() {
                                     lineHeight: '1.4',
                                 }}
                             >
-                                <li>Goal or aspiration</li>
-                                <li>Dream project</li>
-                                <li>Where you want to be</li>
+                                <li>- Land a UI/UX design internship</li>
+                                <li>
+                                    - Work in Japan to learn about their
+                                    craftsmanship culture
+                                </li>
+                                <li>- Learn Japanese</li>
+                                <li>- Visit 3 different Asian countries</li>
                             </ul>
                         </div>
                     </div>
