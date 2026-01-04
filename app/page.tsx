@@ -275,6 +275,11 @@ export default function Home() {
                                     - I almost got sued by Queen's University
                                     (less fun of a fact)
                                 </li>
+                                <li>
+                                    - This infographic was built in Cursor
+                                    (because I thought it would be easier than
+                                    Canva?)
+                                </li>
                             </ul>
                         </div>
 
