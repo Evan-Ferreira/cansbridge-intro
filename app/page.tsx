@@ -1,6 +1,32 @@
+'use client';
+
 import Image from 'next/image';
+import { useRef } from 'react';
+import html2canvas from 'html2canvas';
 
 export default function Home() {
+    const windowRef = useRef<HTMLDivElement>(null);
+
+    const downloadAsImage = async () => {
+        if (!windowRef.current) return;
+
+        try {
+            const canvas = await html2canvas(windowRef.current, {
+                backgroundColor: '#C0C0C0',
+                scale: 1,
+            });
+            const link = document.createElement('a');
+            link.download = 'cansbridge-intro.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        } catch (error) {
+            console.error('Error capturing image:', error);
+            alert(
+                'Failed to download image. Please ensure html2canvas is installed.'
+            );
+        }
+    };
+
     return (
         <div
             className="size-full flex items-center justify-center w-screen h-screen"
@@ -8,6 +34,7 @@ export default function Home() {
         >
             {/* Main Window */}
             <div
+                ref={windowRef}
                 className="win98-window"
                 style={{
                     width: '800px',
@@ -344,8 +371,30 @@ export default function Home() {
                 </div>
             </div>
 
-            {/* Social Icons - Bottom Right */}
-            <div className="fixed bottom-4 right-4 flex gap-2 opacity-50 transition-opacity">
+            {/* Download Button & Social Icons - Bottom Right */}
+            <div className="fixed bottom-4 right-4 flex gap-2 items-center opacity-50 transition-opacity">
+                {/* Download Button */}
+                <button
+                    onClick={downloadAsImage}
+                    className="flex items-center justify-center w-4 h-4 cursor-pointer transition-transform hover:rotate-[5deg]"
+                    title="Download as image"
+                >
+                    <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="text-black hover:text-gray-800 transition-colors"
+                    >
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                        <polyline points="7 10 12 15 17 10" />
+                        <line x1="12" y1="15" x2="12" y2="3" />
+                    </svg>
+                </button>
                 {/* GitHub Icon */}
                 <a
                     href="https://github.com/Evan-Ferreira/cansbridge-intro"
