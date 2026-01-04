@@ -265,14 +265,13 @@ export default function Home() {
                                 }}
                             >
                                 <li>
-                                    - I've wrestled competitively for 6 years
+                                    - I'm half Hakka Chinese and half Portuguese
                                 </li>
                                 <li>- Pho is my favourite food</li>
                                 <li>
                                     - I almost got sued by Queen's University
                                     (less fun of a fact)
                                 </li>
-                                <li>- I've never tried McDonald's</li>
                                 <li>
                                     - This infographic was built in Cursor
                                     (because I thought it'd be easier than
