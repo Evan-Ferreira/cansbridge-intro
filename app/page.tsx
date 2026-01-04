@@ -3,7 +3,7 @@ import Image from 'next/image';
 export default function Home() {
     return (
         <div
-            className="size-full flex items-center justify-center"
+            className="size-full flex items-center justify-center w-screen h-screen"
             style={{ background: 'var(--win98-bg)', padding: '20px' }}
         >
             {/* Main Window */}
@@ -11,7 +11,6 @@ export default function Home() {
                 className="win98-window"
                 style={{
                     width: '800px',
-                    height: '600px',
                     display: 'flex',
                     flexDirection: 'column',
                 }}
@@ -162,7 +161,10 @@ export default function Home() {
                     </div>
 
                     {/* Three Section Panels - Past, Present, Future */}
-                    <div style={{ display: 'flex', gap: '2px', flex: 1 }}>
+                    <div
+                        className="h-fit"
+                        style={{ display: 'flex', gap: '2px' }}
+                    >
                         {/* Past Panel */}
                         <div
                             className="panel98"
@@ -296,26 +298,40 @@ export default function Home() {
                             style={{
                                 display: 'flex',
                                 gap: '4px',
-                                justifyContent: 'center',
+                                width: '100%',
                             }}
                         >
-                            {/* Photo placeholder boxes */}
-                            {[1, 2, 3, 4, 5].map((i) => (
+                            {/* Photos */}
+                            {[
+                                '/hussein_getting_cooked.PNG',
+                                '/birthday.png',
+                                '/pho.jpg',
+                                '/sf.JPG',
+                                '/taiv.JPG',
+                            ].map((src, i) => (
                                 <div
                                     key={i}
                                     className="win98-sunken"
                                     style={{
-                                        width: '60px',
-                                        height: '60px',
-                                        background: '#ffffff',
+                                        flex: 1,
+                                        aspectRatio: '1',
+                                        overflow: 'hidden',
                                         display: 'flex',
                                         alignItems: 'center',
                                         justifyContent: 'center',
-                                        fontSize: '9px',
-                                        color: 'var(--win98-edge)',
                                     }}
                                 >
-                                    {i}
+                                    <Image
+                                        src={src}
+                                        alt={`Photo ${i + 1}`}
+                                        width={200}
+                                        height={200}
+                                        style={{
+                                            width: '100%',
+                                            height: '100%',
+                                            objectFit: 'cover',
+                                        }}
+                                    />
                                 </div>
                             ))}
                         </div>
